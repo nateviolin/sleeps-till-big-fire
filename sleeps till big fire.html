@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<style>
+body {
+font-family: “Open Sans”, sans-serif;
+color: #f5f5f5;
+text-shadow: 0pt -2pt 4pt #fff, 0pt -2pt 10pt #FF3, 0pt -10pt 20pt         #F90, 0pt -20pt 40pt #C33;
+font-size: 50pt; background-color: dimgray;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+
+}
+</style>
+</head>
+
+  <body>
+    <div id="countdown"></div>
+    <script>
+      function countdownTimer() {
+        const difference = +new Date("August 2 2020 05:00:00 GMT-0400") - +new Date();
+        let remaining = "BIG FIRE IS NOW";
+
+        if (difference > 0) {
+          const parts = {
+            SLEEPS: Math.floor(difference / (1000 * 60 * 60 * 24) + 1),
+          };
+
+          remaining = Object.keys(parts)
+            .map(part => {
+              if (!parts[part]) return;
+              return `${parts[part]} ${part} TILL BIG FIRE`;
+            })
+            .join(" ");
+        }
+
+        document.getElementById("countdown").innerHTML = remaining;
+      }
+
+      countdownTimer();
+      setInterval(countdownTimer, 1000);
+    </script>
+
+  </body>
+</html>
+
